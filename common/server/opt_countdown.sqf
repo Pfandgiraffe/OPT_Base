@@ -9,12 +9,6 @@
 //changed by psycho
 private ["_breaker","_ticker"];
 if (isMultiplayer && !isServer) exitWith {};
-//"Timer" setMarkerText format ["%1 Minuten", playTime];
-//uiSleep 10;
-
-"Timer" setMarkerAlpha 0;
-"CSAT" setMarkerAlpha 0;
-"NATO" setMarkerAlpha 0;
 
 waitUntil {MissionStarted};
 ["opt_logEvent", "########## Mission wurde gestartet ##########"] call tcb_fnc_NetCallEvent;
@@ -35,20 +29,17 @@ for "_i" from (playTime) to 0 step -1 do {
 		opt_serverTime = time;
 		["opt_serverTime", opt_serverTime] call tcb_fnc_NetCallEvent;
 		_time = [playTime / 60,"HH"]call bis_fnc_TimeToString;
-		//"Timer" setMarkerText format ["%1 Minuten", _time];
 		_ticker = 0;
 
 		if (opt_dominator != "none") then {
 			if (toUpper(opt_dominator) == "CSAT") then {
 				EastPoints = EastPoints + 1;
 				publicVariable "EastPoints";
-				//"CSAT" setMarkerText format ["%1 Punkte", EastPoints];
 				systemChat "CSAT: +1 Punkt";
 				["opt_logEvent", format ["########## Punkte: CSAT +1 (NATO %1 | CSAT %2) ##########", WestPoints, EastPoints]] call tcb_fnc_NetCallEvent;
 			} else {
 				WestPoints = WestPoints + 1;
 				publicVariable "WestPoints";
-				//"NATO" setMarkerText format ["%1 Punkte", WestPoints];
 				systemChat "NATO: +1 Punkt";
 				["opt_logEvent", format ["########## Punkte: NATO +1 (NATO %1 | CSAT %2) ##########", WestPoints, EastPoints]] call tcb_fnc_NetCallEvent;
 			};
@@ -68,3 +59,4 @@ publicVariable "playTime";
 ["opt_logEvent", "########## Missionzeit abgelaufen ##########"] call tcb_fnc_NetCallEvent;
 ["opt_logEvent", format ["########## Endbudget: (NATO %1 | CSAT %2) ##########", opt_west_budget, opt_east_budget]] call tcb_fnc_NetCallEvent;
 ["opt_logEvent", format ["########## Endpunktestand: (NATO %1 | CSAT %2) ##########", WestPoints, EastPoints]] call tcb_fnc_NetCallEvent;
+call opt_fnc_logPScore;

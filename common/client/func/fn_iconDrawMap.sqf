@@ -3,7 +3,7 @@
 private ["_v","_iconType","_color","_pos","_iconSize","_dir","_text","_shadow","_textSize","_textFont","_textOffset","_units"];
 
 if (!isNil "opt_hqObj") then {
-	if (alive opt_hqObj && {!isNull opt_hqObj}) then {
+	//if (alive opt_hqObj && {!isNull opt_hqObj}) then {
 		_shadow = 1;
 		_textSize = 0.05;
 		_textFont = 'puristaMedium';
@@ -36,5 +36,5 @@ if (!isNil "opt_hqObj") then {
 				};
 			};
 		} count (allUnits + allUnitsUav);
-	};
+	//};
 };

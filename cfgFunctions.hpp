@@ -94,7 +94,6 @@ class opt {
 	class common {
 		file = "common\func";
 		addf(zone_sectorControl_Msg);
-		addf(farpReset);
 		addf(vehicleBeam);
 		addf(wallChain);
 	};
@@ -125,6 +124,7 @@ class opt {
 		addf(setFlagOwner);
 		addf(calculateDominator);
 		addf(vehicleLogEvent);
+		addf(logPScore);
 	};
 };
 

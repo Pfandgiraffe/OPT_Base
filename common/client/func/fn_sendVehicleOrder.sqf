@@ -35,9 +35,11 @@ if (isNil "tcb_crew") then {tcb_crew = []};
 if (isNil "tcb_pilotsVecs") then {tcb_pilotsVecs = []};
 if (isNil "tcb_pilots") then {tcb_pilots = []};
 
-if ((_unitType in tcb_pilotsVecs && (!(typeOf player in (tcb_pilots+OPT_GPSunits)))) || {_unitType in tcb_crewVecs && (!(typeOf player in (tcb_crew+OPT_GPSunits)))}) exitWith {
-	closeDialog 0;
-	TitleRsc ["only_qualified", "plain", 0.5];
+if (OPT_TRAINING == 0) then {
+	if ((_unitType in tcb_pilotsVecs && (!(typeOf player in (tcb_pilots+OPT_GPSunits)))) || {_unitType in tcb_crewVecs && (!(typeOf player in (tcb_crew+OPT_GPSunits)))}) exitWith {
+		closeDialog 0;
+		TitleRsc ["only_qualified", "plain", 0.5];
+	};
 };
 
 _side_Budget = if (playerSide == west) then {opt_west_budget} else {opt_east_budget};

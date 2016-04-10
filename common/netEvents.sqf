@@ -20,7 +20,6 @@ if (isServer) then {
 	["addToCurator", {tcb_gamemaster addCuratorEditableObjects [[_this],false]}] call tcb_fnc_NetAddEventCTS;
 	["vehicleOrder", {_this call opt_fnc_updateVehiclePool}] call tcb_fnc_NetAddEventCTS;
 	["maintainer_vehicleOrder", {_this call opt_fnc_SpawnVehicle}] call tcb_fnc_NetAddEventCTS;
-	["buildFARP", {_psy = _this execVM "common\server\FARP_servicepoint.sqf"}] call tcb_fnc_NetAddEventCTS;
 	["setNewFlagOwner", {_this call opt_fnc_setFlagOwner}] call tcb_fnc_NetAddEventCTS;
 	["addScore", {(_this select 0) addScore (_this select 1)}] call tcb_fnc_NetAddEventCTS;
 };

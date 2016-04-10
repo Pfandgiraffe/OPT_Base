@@ -135,7 +135,6 @@ class Params {
 #include "dialogs\rscBasicDefines.hpp"
 #include "dialogs\rscTitles.hpp"
 #include "dialogs\mission_settings\mission_settings.hpp"
-#include "sounds\sounds.hpp"
 #include "dialogs\orderDialog.hpp"
 #include "dialogs\mt_dialog.hpp"
 #include "dialogs\far_blackscreen.hpp"

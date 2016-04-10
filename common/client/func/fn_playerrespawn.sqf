@@ -45,6 +45,10 @@ _player_obj setVariable ["tf_voiceVolume", 1.0, true];
 player addAction ["Settings" call XGreyText, "dialogs\mission_settings\create.sqf", [], 0, false];
 #endif
 
+if (OPT_TELEPORT == 1) then {
+	player addAction ["Teleport" call XGreyText, {[] call opt_fnc_teleport}, [], 0, false];
+};
+
 // vehicle flip
 player addAction ["Fahrzeug aufrichten" call XTuerkiesText, "call opt_fnc_unFlip", [], 0, false, true, "", "[_this] call opt_fnc_flipCheck"];
 

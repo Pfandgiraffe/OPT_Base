@@ -22,9 +22,20 @@ If you change again anything on the setup files you have to repeat this step aga
 
 
 Changelog:
+----Version 1.022
+- fixed: broken teleport after respawn in training mode
+- fixed: delete all attached actions on a torso (avoid mission violation trough other players)
+- changed: stronger spectating handling (exit is now possible by pressing X or ESC)
+- changed: disable check for destroyed GPS station (not used feature atm)
+- changed: script clean up opt_countdown.sqf to avoid some rpt warnings
+- changed: no vehicle order destrictions while in training mode
+- changed: change readme format from .txt to .md (compatibility with GitHub, can surely read with normal text editor)
+- removed: old Farp scripts, events, inits, missions.sqm stuff and netevents
+- removed: sound config and sound file cause not needed since some versions
+- added: logPScore event to mission end
+
 
 ----Version 1.019
-
 - Altes Rep-LKW Script deaktiviert.
 - Von zwei Basis Rep-LKW wurde einer entfernt. Zudem FARP Script deaktiviert.
 - Bestellschilder: Bilder-pfade geändert. (Mod)
