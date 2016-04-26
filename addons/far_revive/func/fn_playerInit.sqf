@@ -1,4 +1,9 @@
-// Cache player's side
+// Cache player's sid
+if (isNull player) then {
+	diag_log "OPT Debug: Null player in revive Init found";
+};
+waitUntil {!isNull player};
+
 FAR_PlayerSide = playerSide;
 
 // Clear event handler before adding it

@@ -14,13 +14,13 @@
 
 //=============================================================== INITIALIZATION
 
-/*
+
 opt_hqObj = switch (playerSide) do {
 	case west : {NatoBase};
 	case east : {CsatBase};		// added by psycho
 	default {HQ_Maintainer};	// independend is not a legal side!
 };
-*/
+
 sleep 0.1;
 systemChat "GPS initialisiert";
 
@@ -43,8 +43,7 @@ while {isNull _gps} do {
 };
 clientEhDrawGps = _gps ctrlAddEventHandler ["Draw", opt_fnc_iconDrawGPS];
 
-/*
+
 If (!isNil "opt_hqObj") then {
 	if (!(alive opt_hqObj) || {isNull opt_hqObj}) then {player sideChat "GPS-Station wurde zerstört | GPS offline.";};
 };
-*/

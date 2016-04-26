@@ -57,6 +57,22 @@ player addAction ["Fahrzeug aufrichten" call XTuerkiesText, "call opt_fnc_unFlip
 player call tcb_fnc_removeNVG;
 #endif
 
+// delete old attached demo charges
+if (!isNil {player getVariable "charges"}) then {
+	{
+		_illogic = (nearestObjects [_x, ["Logic"],10]) select 0;
+		if (!isNil {_illogic getVariable "timer"}) then {
+			_illogic setVariable ["timer", 0];
+		} else {
+			deleteVehicle _x;
+		};
+		true
+	} count (player getVariable ["charges",[]]);
+	player setVariable ["charges",[]];
+};
+
+player setVariable ["r3f_isFreeHandling", true];
+
 // reset earplug state
 opt_EarPlugs = 1;
 0 fadeSound 1;

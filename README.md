@@ -22,6 +22,27 @@ If you change again anything on the setup files you have to repeat this step aga
 
 
 Changelog:
+
+----Version 1.024
+- fixed: issue in animation handling avoid players from field repair if no primary weapon was selected
+- fixed: add a null check for players entitie after respawn and before revive init (maybe fix the random bug for grey screen after respawn)
+- fixed: base protection zones now kill only the player self not the vehicles (cause sometime captured vehicles explode)
+- fixed: avoid from beam actions while handle a crate (R3F vs. Beam)
+- changed: attached demo charge time limited to max. 180 seconds
+- changed: range of remote touch off for attached satchels limited to 2000 metres
+- changed: remove possibility to touch off satchels after a respawn
+- changed: remove speed boats and sdv's from movable item list (R3F)
+- changed: delay the auto configuration for TFAR radio channels a little bit (hopefully stronger init)
+- changed: disable simulation for bag fences in NATO bases
+
+
+----Version 1.023
+- removed: changes in drawmap.sqf and opt3_gps.sqf regarding GPS station (since gps was not functional!)
+- changed: translations for "crewman, pilot and order restrictions" added to rsctitles.hpp
+- removed: blinking lights removed from airstrips in bases (for performance improvement)
+- changed: minor changes in base setup at CSAT bases
+- added: version numbers and changelogs added and updated
+
 ----Version 1.022
 - fixed: broken teleport after respawn in training mode
 - fixed: delete all attached actions on a torso (avoid mission violation trough other players)
@@ -34,6 +55,26 @@ Changelog:
 - removed: sound config and sound file cause not needed since some versions
 - added: logPScore event to mission end
 
+----Version 1.021
+- Bilder in paa Format eingebaut (Mod) -> description.ext
+- Bilder in paa Format eingebaut (Mod) -> RscTitles.hpp
+- Schreibfehler bereinigt. -> RscTitles.hpp
+- Marine-Ausrüstung: Bild eingebaut.
+- Fehlender Raketenwerfer in abfrage eingebaut. -> common/client/opt_checkWeapon.sqf
+
+----Version 1.020
+- Statisches GMG (hoch) war nicht richtig im R3F eingetragen.
+- Preis des Mörser stimmt nun.
+- addons/attach_exp/EtV.sqf: -> Sprengladung an Fahrzeuge -> Auf Deutsch übersetzt.
+- Preise der Munition-Container stimmen nun.
+- description.ext: -> Auf Deutsch übersetzt -> UTF-8 Koodiert und umlaute funzen nun auch. Die OPT3 Bildpfade waren noch nicht alle richtig.
+- Neue NATO Basen eingebaut.
+- dialogs/fn_maintainerVecList.sqf -> Aktualisiert
+- dialogs/far_blackscreen.hpp -> Text auf Deutsch übersetzt -> "Sie sind verwundet."
+- Flug-Drohnen können nun von jedem gekauft werden. ->client/func/fn_sendVehicleOrder.sqf + setup_classnames.sqf
+- Offizier kann nun nicht mehr fliegen + Schwere Kampfahrzeuge fahren. -> common/client/jip.sqf
+- "Gruppenführer" gegen "Offizier" getauscht (15-25)
+- "Offizier" gegen "Gruppenführer" getauscht (50-70)
 
 ----Version 1.019
 - Altes Rep-LKW Script deaktiviert.

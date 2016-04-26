@@ -20,7 +20,7 @@ EtV_TouchOff =
 	_unit = _array select 0;
 	_explosives = _unit getVariable ["charges",[]];
 	{
-		if(alive _x) then
+		if (alive _x && {_x distance _unit < 2000}) then		// psycho, limited range, only chared closer than 2km are blow up
 		{
 			"HelicopterExploSmall" createVehicle (position _x);
 			deleteVehicle _x;
@@ -33,14 +33,16 @@ EtV_UnitCheck =
 {
 	private "_return";
 	_unit = _this select 0;
+	_return = false;
 	_explosives = _unit getVariable ["charges",[]];
-	if(count _explosives > 0) then
-	{
-		_return = true;
-	}
-	else
-	{
-		_return = false;
+	
+	if(count _explosives > 0) then {
+		{
+			if ((_unit distance _x) < 2000) then {			// psycho, if no satchel is closer than 2km, entry for toucOff isnt accessable
+				_return = true;
+			};
+			true
+		} count _explosives;
 	};
 	
 	_return
@@ -55,7 +57,7 @@ EtV_TimedCharge =
 	while {alive _explosive} do
 	{
 		waitUntil {!isNil {_illogic getVariable "timer"};};
-		if(_illogic getVariable "timer" == 0) exitWith 
+		if(_illogic getVariable "timer" <= 0) exitWith 
 		{
 			_charges = _unit getVariable ["charges",[]];
 			_unit setVariable ["charges",_charges - [_explosive]];
@@ -126,13 +128,24 @@ EtV_Timer =
 	_array = _this select 3;
 	_unit = _array select 0;
 	_explosive = [_unit] call EtV_ClosestExplosive;
-	_illogic = (nearestObjects [_explosive,["Logic"],50]) select 0;
+	_explosive setVariable ["timer", true];
+	_illogic = (nearestObjects [_explosive,["Logic"],10]) select 0;
 	if(!isNil "_illogic") then
 	{
 		_oldTime = _illogic getVariable ["timer",0];
-		_illogic setVariable ["timer",_oldTime + 30];
-		_newTime = _illogic getVariable "timer";
-		hint format ["Zeitzünder auf %1 Sekunden eingestellt.",_newTime];
+		if (_illogic getVariable ["timer",0] <= 180) then {		// psycho, max. 3 Minuten Timer
+			_illogic setVariable ["timer",_oldTime + 30];
+			_newTime = _illogic getVariable "timer";
+			if (_newTime > 180) then {
+				_illogic setVariable ["timer", 180];
+				_newTime = 180;			
+			};
+			hint format ["Zeitzünder auf %1 Sekunden eingestellt.",_newTime];
+		} else {
+			_illogic setVariable ["timer", 180];
+			_newTime = _illogic getVariable "timer";
+			hint "Der Zeitzünder kann auf max. 3 Minuten gestellt werden.";		
+		};
 	};
 };
 

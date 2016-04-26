@@ -8,11 +8,11 @@
 // -------------------------------------------------------------------------------------------------- Allgemein ---------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // hier den Missionsnamen festlegen
-#define __MISSION_NAME__ "OPT BaseVersion v1.022"
+#define __MISSION_NAME__ "OPT BaseVersion v1.024"
 // made by
 #define __MADEBY__ "Psychobastard und X-one"
 // short description
-#define __MISSION_DESCRIPTION__ "OPT BaseVersion v1.022"
+#define __MISSION_DESCRIPTION__ "OPT BaseVersion v1.024"
 
 // festlegen des Respawn Typs:
 // 0 = No Respawn (NONE)

@@ -44,6 +44,8 @@ else
 			{
 				[_objet, _joueur] call R3F_LOG_FNCT_definir_proprietaire_verrou;
 				
+				
+				_joueur setVariable ["r3f_isFreeHandling", false];	// by psycho
 				_objet setVariable ["R3F_LOG_est_deplace_par", _joueur, true];
 				
 				_joueur forceWalk true;
@@ -451,6 +453,8 @@ else
 				
 				_joueur forceWalk false;
 				R3F_LOG_joueur_deplace_objet = objNull;
+				
+				_joueur setVariable ["r3f_isFreeHandling", true];	// by psycho
 				
 				// Reprise de l'arme et restauration de son mode de tir, si nécessaire
 				if (alive _joueur && !surfaceIsWater getPos _joueur && _restaurer_arme) then

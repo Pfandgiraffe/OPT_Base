@@ -114,8 +114,6 @@ if (tcb_b_check_crew == 1) then {
 #endif
 
 // call OPT specific items
-[] spawn opt_TFARfrequencies;
-[] spawn opt_tfarVehicleLr;
 If (OPT_TFAR_INTERCEPTION == 1) then {
 	_log_briefing = player createDiaryRecord ["keys", ["gegnerischer Funk", "
 	Die Option um gegnerischen Funk (Vehicle Radios) abhören zu können ist aktiv! Die eingestellte gegnerische Frequenz kann beim entern eines gegnerischen Fahrzeuges jedoch nicht direkt abgelesen werden sondern muss selber gefunden werden.
@@ -153,6 +151,12 @@ _layer cutRsc ["mission_Label", "PLAIN"];
 [] spawn tcb_fnc_JukeBox;
 intro_done = true;
 #endif
+
+[] spawn {
+	sleep 5;	// delay... make sure TFAR had initialized
+	[] spawn opt_TFARfrequencies;
+	[] spawn opt_tfarVehicleLr;
+};
 
 (findDisplay 46) displayAddEventHandler ["KeyDown", {_this call opt_fnc_earplugs}];
 // OPT Maintainer

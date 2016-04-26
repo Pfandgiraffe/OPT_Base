@@ -318,12 +318,12 @@ R3F_LOG_CFG_can_be_moved_by_player = R3F_LOG_CFG_can_be_moved_by_player +
 	"OPT_B_Slingload_01_Fuel_F",     				// Fuelcontainer
     "OPT_B_Slingload_01_Ammo_F",					// Munitionscontainer
   	"OPT_B_Slingload_01_Medevac_F",					// Lazarettcontainer	
-	"OPT_B_Boat_Armed_01_minigun_F",				// Speedboat Minigun
-	"OPT_O_Boat_Armed_01_hmg_F",					// Speedboat HMG
+	//"OPT_B_Boat_Armed_01_minigun_F",				// Speedboat Minigun
+	//"OPT_O_Boat_Armed_01_hmg_F",					// Speedboat HMG
 	"OPT_B_Boat_Transport_01_F",					// Assault Boat
 	"OPT_O_Boat_Transport_01_F",					// Assault Boat
-	"OPT_B_SDV_01_F",					// SDV
-	"OPT_O_SDV_01_F",					// SDV
+	//"OPT_B_SDV_01_F",					// SDV
+	//"OPT_O_SDV_01_F",					// SDV
 	"OPT_B_Mortar_01_F",				// Mk6 Mortar
 	"OPT_O_Mortar_01_F",				// Mk6 Mortar
 	"OPT_B_HMG_01_F",					// Mk30 HMG .50

@@ -155,7 +155,9 @@ zlt_prc_repairvehicle = {
 	_hastk = [] call zlt_fnc_hastk;
 	if ( _hastk == 0 ) exitWith {STR_NEED_TOOLKIT call zlt_fnc_notify;};
 	_repairFinished = false;
-	zlt_mutexAction = true;  
+	zlt_mutexAction = true;
+	player selectWeapon primaryWeapon player;	// psycho, animation only able to play while primary weapon is in use
+	sleep 1;
 	_lastPlayerState = animationState player;
 	player playActionNow "medicStartRightSide";
 	sleep 0.5;

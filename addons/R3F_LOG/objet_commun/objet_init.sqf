@@ -17,6 +17,8 @@ _objet = _this select 0;
 _config = configFile >> "CfgVehicles" >> (typeOf _objet);
 _nom = getText (_config >> "displayName");
 
+player setVariable ["r3f_isFreeHandling", true];	// by psycho
+
 // Définition locale de la variable si elle n'est pas définie sur le réseau
 if (isNil {_objet getVariable "R3F_LOG_est_transporte_par"}) then
 {

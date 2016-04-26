@@ -144,7 +144,7 @@
 	  	name="only_pilots";
 	  	controls[] = {Titel};
 		class Titel : RscStdText {
-			text = "Only pilots are allowed to fly";
+			text = "Es ist nur Piloten erlaubt zu fliegen!";
 			colorText[] = Color_GrayDark;
 			sizeEx = TextSize_medium;
 			x = -0.8;
@@ -161,7 +161,7 @@
 	  	name="only_crew";
 	  	controls[] = {Titel};
 		class Titel : RscStdText {
-			text = "Only a crewman can use this position";
+			text = "Dieser Platz ist Besatzungsmitgliedern vorbehalten!";
 			colorText[] = Color_GrayDark;
 			sizeEx = TextSize_medium;
 			x = -0.8;
@@ -178,7 +178,7 @@
 	  	name="only_qualified";
 	  	controls[] = {Titel};
 		class Titel : RscStdText {
-			text = "Only qualified soldiers can order this vehicle";
+			text = "Dieses Fahrzeug darf nur von Fachpersonal bestellt werden!";
 			colorText[] = Color_GrayDark;
 			sizeEx = TextSize_medium;
 			x = -0.5;
