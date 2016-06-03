@@ -239,7 +239,7 @@ R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
  // e.g. : ["MyTransportableObjectClassName1", itsCost], ["MyTransportableObjectClassName2", itsCost]
 R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
 [														
-	["Land_BagFence_Round_F", 5],						// runde sandsackecke!
+	/*["Land_BagFence_Round_F", 5],						// runde sandsackecke!
 	["Land_BagFence_Long_F", 10],						// lange sandsackbarriere
 	["Land_BagFence_Short_F", 5],						// kurze sandsackbarriere
 	["Land_HBarrier_5_F", 35],							// H-barrier 5 blocks
@@ -250,7 +250,7 @@ R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
 	["Land_CncBarrierMedium_F", 30],					// beton barriere (mittel)
 	["Land_CncBarrierMedium4_F", 40],					// beton barriere (mittel - lang)
 	["Land_Mil_WiredFence_F", 5],						// maschendrahtzaun
-	["CamoNet_BLUFOR_big_Curator_F", 5],				// Camonet zum testen!	
+	["CamoNet_BLUFOR_big_Curator_F", 5],				// Camonet zum testen!	*/
 	["OPT_B_supplyCrate_F", 30],						// Transportkiste (leer)													
 	["OPT_Box_NATO_Ammo_F", 30],          				// Munitionskiste
     ["OPT_Box_NATO_Grenades_F", 30],  					// Explosivkiste
@@ -318,12 +318,12 @@ R3F_LOG_CFG_can_be_moved_by_player = R3F_LOG_CFG_can_be_moved_by_player +
 	"OPT_B_Slingload_01_Fuel_F",     				// Fuelcontainer
     "OPT_B_Slingload_01_Ammo_F",					// Munitionscontainer
   	"OPT_B_Slingload_01_Medevac_F",					// Lazarettcontainer	
-	//"OPT_B_Boat_Armed_01_minigun_F",				// Speedboat Minigun
-	//"OPT_O_Boat_Armed_01_hmg_F",					// Speedboat HMG
+	"OPT_B_Boat_Armed_01_minigun_F",				// Speedboat Minigun
+	"OPT_O_Boat_Armed_01_hmg_F",					// Speedboat HMG
 	"OPT_B_Boat_Transport_01_F",					// Assault Boat
 	"OPT_O_Boat_Transport_01_F",					// Assault Boat
-	//"OPT_B_SDV_01_F",					// SDV
-	//"OPT_O_SDV_01_F",					// SDV
+	"OPT_B_SDV_01_F",					// SDV
+	"OPT_O_SDV_01_F",					// SDV
 	"OPT_B_Mortar_01_F",				// Mk6 Mortar
 	"OPT_O_Mortar_01_F",				// Mk6 Mortar
 	"OPT_B_HMG_01_F",					// Mk30 HMG .50

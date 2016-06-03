@@ -23,6 +23,16 @@ If you change again anything on the setup files you have to repeat this step aga
 
 Changelog:
 
+----Version 1.026
+- merge 1.245 and 1.25
+
+----Version 1.025
+- fixed: no simulation, no r3f to sandbags (if it was not changed in another file, there was a mistake saving it?! init of objects was empty)
+- added: fernmarkierer to r3f-script
+- deleted/excluded: sandbags and other support materials excluded from r3f
+- added: "r3f-free handling" added to beach flags (to avoid boats being beamed)
+- changed: boats readded to "carry"-option of r3f, because there was problems when unloading them from trucks
+
 ----Version 1.0245
 - fixed: variable order to BIS-fnc_typeText2 since function was changed in 1.56 patch
 - changed: reduce TFAR Volume for unconcious players and disable abillity to talk while unconcious (most players missaply it)
