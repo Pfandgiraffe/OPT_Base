@@ -6,11 +6,57 @@ params ["_unit","_killer"];
 if (isPlayer _unit) then {
 	disableUserInput true;
 };
-//_unit setVariable ["GREUH_isUnconscious", 1, true];
-[] spawn opt_addons_fnc_reviveCamera;
+
+_unit setVariable ["FAR_isUnconscious", 1, true];
+
+if (visibleMap) then {openMap false};
 
 // mute TFAR
 [false] call opt_addons_fnc_toggleTFAR;
+
+// Ragdoll
+_unit spawn {
+    _unit = _this;
+    
+    waitUntil {isTouchingGround _unit};
+    waitUntil {!(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> animationState _unit >> "looped") == 0)};
+
+    if (vehicle _unit != _unit) then {
+        unAssignVehicle _unit;
+		_unit action ["GetOut", vehicle _unit];
+    };
+    
+    _oldAnimationState = animationState _unit;
+    
+    _ragDoll = "Land_Can_V3_F" createVehicleLocal [0, 0, 0];
+    _ragDoll setMass 1e10;
+    _ragDoll attachTo [_unit, [0, 0, 0], "Spine3"];
+    _ragDoll setVelocity [0, 0, 6];
+    _unit allowDamage false;
+    detach _ragDoll;
+    [_ragDoll, _unit] spawn {
+        deleteVehicle (_this select 0);
+        //(_this select 1) allowDamage true;
+    };
+    
+	/*
+	if (animationState _unit == _oldAnimationState) exitWith {
+		_unit playMoveNow "Unconscious";
+	};
+	*/
+    
+    waitUntil {animationState _unit == "incapacitated"};
+    
+    _unit playMoveNow "Unconscious";
+	sleep 4;
+	_unit enableSimulation false;
+	opt_far_hideBlackScreen = true;
+};
+
+
+
+opt_far_hideBlackScreen = false;
+[] spawn opt_addons_fnc_reviveCamera;
 	
 // create marker
 if (tcb_downedMarkers) then {
@@ -24,19 +70,21 @@ if (FAR_EnableDeathMessages) then {
 		[_name] spawn {
 			if (opt_far_dm_running) exitWith {};
 			opt_far_dm_running = true;
-			sleep 3.5;
+			waitUntil {opt_far_hideBlackScreen};
+			sleep 1;
 			_txt = format ["%1",(_this select 0)];
 			_print = [
 				["wounded by:","align = 'right' size = '0.8'","#f0bfbfbf"],				// grey
 				["","<br/>"],
 				[_txt, "align = 'right' size = '1.2' font='PuristaBold'","#f07f7f00"]	// yellow
 			];
-			[_print, safezoneX,0.95, "<t>%1</t>"] spawn BIS_fnc_typeText2;
+			[_print, safezoneX, 0.95, true, "<t>%1</t>"] spawn BIS_fnc_typeText2;
 			opt_far_dm_running = false;
 		};
 	};
 };
-	
+
+/*
 // Eject unit if inside vehicle
 if (vehicle _unit != _unit) then {
 	unAssignVehicle _unit;
@@ -55,6 +103,7 @@ sleep 4;
 //_unit switchMove "AinjPpneMstpSnonWrflDnon";
 _unit enableSimulation false;
 _unit setVariable ["FAR_isUnconscious", 1, true];
+*/
 	
 
 _bleedOut = time + FAR_BleedOut;

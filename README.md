@@ -23,6 +23,11 @@ If you change again anything on the setup files you have to repeat this step aga
 
 Changelog:
 
+----Version 1.0245
+- fixed: variable order to BIS-fnc_typeText2 since function was changed in 1.56 patch
+- changed: reduce TFAR Volume for unconcious players and disable abillity to talk while unconcious (most players missaply it)
+- changed: finaly find a way to implement ragdoll in revive system (experimental!)
+
 ----Version 1.024
 - fixed: issue in animation handling avoid players from field repair if no primary weapon was selected
 - fixed: add a null check for players entitie after respawn and before revive init (maybe fix the random bug for grey screen after respawn)
@@ -34,7 +39,6 @@ Changelog:
 - changed: remove speed boats and sdv's from movable item list (R3F)
 - changed: delay the auto configuration for TFAR radio channels a little bit (hopefully stronger init)
 - changed: disable simulation for bag fences in NATO bases
-
 
 ----Version 1.023
 - removed: changes in drawmap.sqf and opt3_gps.sqf regarding GPS station (since gps was not functional!)

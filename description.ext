@@ -149,7 +149,7 @@ enableItemsDropping = 1;
 #endif
 
 
-class CfgDebriefing {  
+class CfgDebriefing { 
 	class End1 {
 		subtitle = "NATO hat die Schlacht gewonnen!";
 		description = "Die NATO Truppen eroberten weitere Gebiete in diesem Krieg.";
